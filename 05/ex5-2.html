@@ -12,20 +12,7 @@
     <script>
         $().ready(function () {
             doInsert2();
-        });
-
-        var x;
-
-        $().ready(function () {
-            x = 0;
-            setInterval(doCount, 2000);
-        });
-
-        async function doCount() {
-            x++;
-            doInsert2();
-        }
-
+        })
 
         function button1Pressed() {
             doInsert();
