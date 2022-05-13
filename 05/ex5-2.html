@@ -10,9 +10,13 @@
     <script type="text/javascript" src="../osql.js"></script>
 
     <script>
+        $().ready(function () {
+            doInsert2();
+        });
+
+
         function button1Pressed() {
             doInsert();
-            doInsert2();
         }
 
         async function doInsert() {
