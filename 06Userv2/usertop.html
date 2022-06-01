@@ -15,8 +15,12 @@
         });
 
         function init() {
+            var userid = sessionStorage.getItem('userid');
             var username = sessionStorage.getItem('username');
             document.getElementById('welcome').innerHTML = 'ようこそ' + username + 'さん';
+
+            sessionStorage.setItem('userid', userid);
+            sessionStorage.setItem('username', username);
         }
     </script>
 

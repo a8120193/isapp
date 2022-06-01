@@ -31,11 +31,13 @@
             doInsert2();
         }
 
+
         async function doInsert() {
-            var userid = document.getElementById('tf1').value;
+            var username = sessionStorage.getItem('username');
+            console.log(username);
             var tweet = document.getElementById('tf2').value;
 
-            var sql = `insert into Tweets (name, tweet, time) values("${userid}", "${tweet}", now());`;
+            var sql = `insert into Tweets (name, tweet, time) values("${username}", "${tweet}", now());`;
             var objects = await osql.connect(sql);
             console.log(objects);
 
@@ -43,6 +45,8 @@
         }
 
         async function doInsert2() {
+            var username = sessionStorage.getItem('username');
+
             var sql2 = "select * from Tweets order by id desc";
             var objects = await osql.connect(sql2);
             console.log(objects);
@@ -68,8 +72,6 @@
 
 <body>
     <h1>Tweets</h1>
-    <br>
-    名前:<input id="tf1" value="名無し" type="textfield">
     <br>
     tweet:<input id="tf2" type="textfield">
     <button onclick="button1Pressed()">tweet</button>
