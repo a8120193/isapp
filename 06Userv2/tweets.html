@@ -33,11 +33,11 @@
 
 
         async function doInsert() {
-            var username = sessionStorage.getItem('username');
-            console.log(username);
+            var userid = sessionStorage.getItem('userid');
+            console.log(userid);
             var tweet = document.getElementById('tf2').value;
 
-            var sql = `insert into Tweets (name, tweet, time) values("${username}", "${tweet}", now());`;
+            var sql = `insert into Tweets (name, tweet, time) values("${userid}", "${tweet}", now());`;
             var objects = await osql.connect(sql);
             console.log(objects);
 
