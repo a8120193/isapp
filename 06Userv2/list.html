@@ -19,9 +19,9 @@
         }
 
         async function doInsert() {
-            var useridDel = document.getElementById('tf1').value;
+            var useridDel = userid;
 
-            var sqlDel = `delete from Users where id like "%${useridDel}%";`;
+            var sqlDel = `select * from Users where id like "%${useridDel}%";`;
             var objects1 = await osql.connect(sqlDel);
             console.log(objects1);
 
@@ -40,10 +40,18 @@
                 html = html + '<td>' + object.id + '</td>';
                 html = html + '<td>' + object.name + '</td>';
                 html = html + '<td>' + '<a href="update.html?userid=' + object.id + '">変更</a>' + '</td>';
+                html = html + '<td>' + '<button onclick="button1Pressed()">削除</button>' + '</td>';
                 html = html + '</tr>';
             }
             html = html + '</table>';
             document.getElementById('result').innerHTML = html;
+        }
+
+        function button1Pressed() {
+            var ans = window.confirm('本当にいいんですね？');
+            if (ans == true) {
+
+            }
         }
     </script>
 
@@ -51,10 +59,7 @@
 
 <body>
     <h1>Users</h1>
-    <hr>
-    ID:<input id="tf1" value="" type="textfield">
-    <button onclick="button1Pressed()">削除</button>
-    <hr>
+
     <p id="result"></p>
 </body>
 
