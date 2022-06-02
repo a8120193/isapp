@@ -16,6 +16,7 @@
 
         async function execSelect() {
             var userid = osql.getParam('userid');
+            console.log(userid);
             var sql = `select * from Users where id="${userid}";`;
             var objects = await osql.connect(sql);
             if (objects.length <= 0) {

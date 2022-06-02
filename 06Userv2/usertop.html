@@ -15,13 +15,28 @@
         });
 
         function init() {
-            var userid = sessionStorage.getItem('userid');
             var username = sessionStorage.getItem('username');
+            var userid = sessionStorage.getItem('userid');
             document.getElementById('welcome').innerHTML = 'ようこそ' + username + 'さん';
 
-            sessionStorage.setItem('userid', userid);
-            sessionStorage.setItem('username', username);
+            console.log(userid);
+
+            sessionStorage.setItem('userid', objects[0].id);
+            sessionStorage.setItem('username', objects[0].name);
+
+
         }
+
+        function update() {
+            var userid = sessionStorage.getItem('userid');
+            location.href = `update.html?userid=${userid}`;
+        }
+
+        function tweets() {
+            var username = sessionStorage.getItem('username');
+            location.href = `tweets.html?username=${username}`;
+        }
+
     </script>
 
 </head>
@@ -30,8 +45,8 @@
     <h1>ユーザトップ</h1>
     <p id="welcome"></p>
     <hr>
-    <a href="update.html">ユーザ情報変更</p>
-        <a href="tweets.html">ツイート機能</p>
+    <button onclick="update()">ユーザ情報変更</button>
+    <button onclick="tweets()">ツイート機能</button>
 
 </body>
 
